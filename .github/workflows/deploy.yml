@@ -43,6 +43,7 @@ jobs:
       - name: Build with Gradle
         run: |
           cp WebApkShell/genApk.ts .
+          cp AndroidManifest.xml WebApkShell/app/src/main/
           bun genApk.ts
 
       - name: Create date tag
