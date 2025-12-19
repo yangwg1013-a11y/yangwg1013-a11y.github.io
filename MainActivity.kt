@@ -98,6 +98,7 @@ class MainActivity : AppCompatActivity() {
         webSettings.allowFileAccessFromFileURLs = true
         webSettings.allowUniversalAccessFromFileURLs = true
         webSettings.allowContentAccess = true
+	    webSettings.geolocationEnabled = true
 
 
         class JsObject {
