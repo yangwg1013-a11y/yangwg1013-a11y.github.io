@@ -15,10 +15,8 @@ import java.net.HttpURLConnection
 import java.net.URL
 import android.Manifest
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import android.os.Bundle
 import android.widget.Toast
 
 
