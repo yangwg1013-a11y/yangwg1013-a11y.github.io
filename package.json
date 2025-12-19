@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "webApkShell": {
-    "build_script": "pnpm run build",
+    "build_script": "",
     "dist_path": "./docs",
     "AP_ID": "com.ywg.parkstar",
     "AP_NAME": "ParkStar",
