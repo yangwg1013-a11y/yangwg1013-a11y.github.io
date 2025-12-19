@@ -1,0 +1,3 @@
+[submodule "WebApkShell"]
+	path = WebApkShell
+	url = https://github.com/mx369/WebApkShell.git
