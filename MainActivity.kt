@@ -18,6 +18,8 @@ import android.content.pm.PackageManager
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import android.widget.Toast
+import android.webkit.GeolocationPermissions
+import android.webkit.WebChromeClient
 
 
 class MainActivity : AppCompatActivity() {
