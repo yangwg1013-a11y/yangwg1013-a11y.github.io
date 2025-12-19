@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == REQUEST_CODE_LOCATION) {
-            if (grantResults.isNotEmpty() && grantResults == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
               //  setupWebView() // 用户授予了权限，设置WebView
             } else {
                 Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show() // 用户拒绝权限，给出提示或处理逻辑
