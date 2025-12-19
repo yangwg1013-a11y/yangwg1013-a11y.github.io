@@ -12,8 +12,8 @@
     "build_script": "pnpm run build",
     "dist_path": "./docs",
     "AP_ID": "com.ywg.parkstar",
-    "AP_NAME": "PARKSTAR",
-    "AP_VERSION_NAME": ""
+    "AP_NAME": "ParkStar",
+    "AP_VERSION_NAME": "1.0"
   },
   "dependencies": {
     "react-dom": "^19.2.3",
