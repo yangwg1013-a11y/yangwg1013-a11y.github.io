@@ -52,7 +52,8 @@ jobs:
           TAG="v${DATE}"
           echo "生成 Tag: $TAG"
 
-          git config user.name "yangwg1013-a11y"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git tag $TAG
           git push origin $TAG
