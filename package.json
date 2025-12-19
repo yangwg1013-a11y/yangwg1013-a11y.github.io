@@ -13,7 +13,7 @@
     "dist_path": "./docs",
     "AP_ID": "com.ywg.parkstar",
     "AP_NAME": "ParkStar",
-    "AP_VERSION_NAME": "1.0"
+    "AP_VERSION_NAME": ""
   },
   "dependencies": {
     "react-dom": "^19.2.3",
