@@ -58,19 +58,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         startFrontService()
 
+	     setupWebView() 
+
           if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION), 1)
-        } else {
-            setupWebView() // 如果已经拥有权限，直接设置WebView
-        }      
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_CODE_LOCATION)
+        }
 
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 1) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                setupWebView() // 用户授予了权限，设置WebView
+        if (requestCode == REQUEST_CODE_LOCATION) {
+            if (grantResults.isNotEmpty() && grantResults == PackageManager.PERMISSION_GRANTED) {
+              //  setupWebView() // 用户授予了权限，设置WebView
             } else {
                 Toast.makeText(this, "Location permission denied", Toast.LENGTH_SHORT).show() // 用户拒绝权限，给出提示或处理逻辑
             }
