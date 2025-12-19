@@ -98,7 +98,21 @@ class MainActivity : AppCompatActivity() {
         webSettings.allowFileAccessFromFileURLs = true
         webSettings.allowUniversalAccessFromFileURLs = true
         webSettings.allowContentAccess = true
-	    webSettings.geolocationEnabled = true
+	    
+	   webSettings.setGeolocationEnabled(true)
+
+	 webView.webChromeClient = object : WebChromeClient() {
+            // H5调用navigator.geolocation时触发此回调
+            override fun onGeolocationPermissionsShowPrompt(
+                origin: String,
+                callback: GeolocationPermissions.Callback
+            ) {
+            
+                 callback.invoke(origin, true, false) // 参数：源、允许定位、允许后台定位
+             
+            }
+
+        }
 
 
         class JsObject {
