@@ -23,6 +23,7 @@ import android.widget.Toast
 class MainActivity : AppCompatActivity() {
 
     private lateinit var webView: WebView
+	private val REQUEST_CODE_LOCATION = 1001
 
     private fun getStatusBarHeight(): Int {
         var res = 0
