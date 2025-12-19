@@ -1,0 +1,71 @@
+
+name: Android CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Submodule
+        run: |
+          git submodule update --init --recursive
+
+      - name: set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: "11"
+          distribution: "temurin"
+      - name: Setup Node.js and pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10 # 指定 pnpm 版本
+          run_install: false # 不自动安装依赖（你可以后面手动控制）
+
+      - name: Setup Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "$HOME/.bun/bin" >> $GITHUB_PATH
+          curl -fsSL https://get.pnpm.io/install.sh | sh -
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./WebApkShell/gradlew
+
+      - name: Install Dependency
+        run: bun i
+
+      - name: Build with Gradle
+        run: |
+          cp WebApkShell/genApk.ts .
+          bun genApk.ts
+
+      - name: Create date tag
+        id: tag_step
+        run: |
+          DATE=$(date +'%Y%m%d-%H%M%S')
+          TAG="v${DATE}"
+          echo "生成 Tag: $TAG"
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git tag $TAG
+          git push origin $TAG
+
+          # 输出 tag 名
+          echo "tag_name=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.tag_step.outputs.tag_name }}
+          files: |
+            WebApkShell/app/build/outputs/apk/release/*.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
