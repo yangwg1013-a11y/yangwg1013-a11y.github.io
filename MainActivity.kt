@@ -131,7 +131,7 @@ class MainActivity : AppCompatActivity() {
 	hideStatusBar()
 
      //   setStatusBarTransparent()
-	    webView.setPadding(0,getStatusBarHeight(),0,0)
+	 //   webView.setPadding(0,getStatusBarHeight(),0,0)
 
         webView.addJavascriptInterface(JsObject(), "shell")
         webView.loadUrl("file:///android_asset/index.html")
