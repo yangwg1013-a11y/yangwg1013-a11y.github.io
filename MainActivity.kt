@@ -127,6 +127,8 @@ class MainActivity : AppCompatActivity() {
 
 	setContentView(webView)
 
+	hideStatusBar()
+
         setStatusBarTransparent()
 	webView.setPadding(0,getStatusBarHeight(),0,0)
 
@@ -139,6 +141,20 @@ class MainActivity : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 	
+    }
+
+    private fun hideStatusBar() {
+        // 获取Window对象
+        val window = window
+
+        // 清除FLAG_TRANSLUCENT_STATUS标志（如果有的话）
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+
+        // 添加FLAG_FULLSCREEN标志以隐藏状态栏
+        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        // 如果需要，还可以设置状态栏颜色为透明（可选）
+        window.statusBarColor = Color.TRANSPARENT
     }
 
     override fun onResume() {
