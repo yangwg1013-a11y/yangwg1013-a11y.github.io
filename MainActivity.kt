@@ -101,9 +101,10 @@ class MainActivity : AppCompatActivity() {
         webSettings.allowUniversalAccessFromFileURLs = true
         webSettings.allowContentAccess = true
 	    
-	   webSettings.setGeolocationEnabled(true)
+	    webSettings.setGeolocationEnabled(true)
 
-	 webView.webChromeClient = object : WebChromeClient() {
+
+        webView.webChromeClient = object : WebChromeClient() {
             // H5调用navigator.geolocation时触发此回调
             override fun onGeolocationPermissionsShowPrompt(
                 origin: String,
@@ -123,6 +124,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+	    webView.setPadding(0,getStatusBarHeight(),0,0)
         webView.addJavascriptInterface(JsObject(), "shell")
         webView.loadUrl("file:///android_asset/index.html")
         setContentView(webView)
