@@ -152,7 +152,7 @@ class MainActivity : AppCompatActivity() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 
         // 添加FLAG_FULLSCREEN标志以隐藏状态栏
-        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+   //     window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         // 如果需要，还可以设置状态栏颜色为透明（可选）
         window.statusBarColor = Color.TRANSPARENT
