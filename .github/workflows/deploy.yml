@@ -43,9 +43,9 @@ jobs:
       - name: Build with Gradle
         run: |
           cp WebApkShell/genApk.ts .
-          cp AndroidManifest.xml WebApkShell/app/src/main/
-          cp MainActivity.kt  WebApkShell/app/src/main/java/com/qcp/androidshell/
-          cp activity_main.xml   WebApkShell/app/src/main/res/layout/
+          cp apkconfig/AndroidManifest.xml WebApkShell/app/src/main/
+          cp apkconfig/MainActivity.kt  WebApkShell/app/src/main/java/com/qcp/androidshell/
+          cp apkconfig/activity_main.xml   WebApkShell/app/src/main/res/layout/
           bun genApk.ts
 
       - name: Create date tag
