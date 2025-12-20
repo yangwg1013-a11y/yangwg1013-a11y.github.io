@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
      //  window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         // 如果需要，还可以设置状态栏颜色为透明（可选）
-     //   window.statusBarColor = Color.TRANSPARENT
+        window.statusBarColor = Color.TRANSPARENT
     }
 
     override fun onResume() {
