@@ -130,8 +130,8 @@ class MainActivity : AppCompatActivity() {
 
 	hideStatusBar()
 
-        setStatusBarTransparent()
-	// webView.setPadding(0,getStatusBarHeight(),0,0)
+     //   setStatusBarTransparent()
+	    webView.setPadding(0,getStatusBarHeight(),0,0)
 
         webView.addJavascriptInterface(JsObject(), "shell")
         webView.loadUrl("file:///android_asset/index.html")
@@ -155,7 +155,7 @@ class MainActivity : AppCompatActivity() {
        window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
 
         // 如果需要，还可以设置状态栏颜色为透明（可选）
-        window.statusBarColor = Color.TRANSPARENT
+     //   window.statusBarColor = Color.TRANSPARENT
     }
 
     override fun onResume() {
