@@ -20,6 +20,7 @@ import androidx.core.content.ContextCompat
 import android.widget.Toast
 import android.webkit.GeolocationPermissions
 import android.webkit.WebChromeClient
+import android.graphics.Color
 
 
 class MainActivity : AppCompatActivity() {
@@ -101,7 +102,7 @@ class MainActivity : AppCompatActivity() {
         webSettings.allowUniversalAccessFromFileURLs = true
         webSettings.allowContentAccess = true
 	    
-	    webSettings.setGeolocationEnabled(true)
+	webSettings.setGeolocationEnabled(true)
 
 
         webView.webChromeClient = object : WebChromeClient() {
@@ -124,10 +125,19 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-	    webView.setPadding(0,getStatusBarHeight(),0,0)
+	setContentView(webView)
+
+        setStatusBarTransparent()
+	webView.setPadding(0,getStatusBarHeight(),0,0)
+
         webView.addJavascriptInterface(JsObject(), "shell")
         webView.loadUrl("file:///android_asset/index.html")
-        setContentView(webView)
+        
+    }
+
+    private fun setStatusBarTransparent() {
+        window.statusBarColor = Color.TRANSPARENT
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
     }
 
     override fun onResume() {
