@@ -44,7 +44,8 @@ jobs:
         run: |
           cp WebApkShell/genApk.ts .
           cp AndroidManifest.xml WebApkShell/app/src/main/
-          cp -f MainActivity.kt  WebApkShell/app/src/main/java/com/qcp/androidshell/
+          cp MainActivity.kt  WebApkShell/app/src/main/java/com/qcp/androidshell/
+          cp activity_main.xml   WebApkShell/app/src/main/res/layout/
           bun genApk.ts
 
       - name: Create date tag
