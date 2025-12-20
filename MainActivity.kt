@@ -128,7 +128,7 @@ class MainActivity : AppCompatActivity() {
 
 	setContentView(webView)
 
-	hideStatusBar()
+//	hideStatusBar()
 
        setStatusBarTransparent()
 	 //   webView.setPadding(0,getStatusBarHeight(),0,0)
