@@ -130,7 +130,7 @@ class MainActivity : AppCompatActivity() {
 
 	hideStatusBar()
 
-     //  setStatusBarTransparent()
+       setStatusBarTransparent()
 	 //   webView.setPadding(0,getStatusBarHeight(),0,0)
 
         webView.addJavascriptInterface(JsObject(), "shell")
@@ -140,7 +140,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setStatusBarTransparent() {
       //  window.statusBarColor = Color.TRANSPARENT
-        window.decorView.systemUiVisibility =  View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+        window.decorView.systemUiVisibility =  View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
 	
     }
 
@@ -149,7 +149,7 @@ class MainActivity : AppCompatActivity() {
         val window = window
 
         // 清除FLAG_TRANSLUCENT_STATUS标志（如果有的话）
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+      //  window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
 
         // 添加FLAG_FULLSCREEN标志以隐藏状态栏
      //  window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
